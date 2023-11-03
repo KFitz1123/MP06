@@ -110,3 +110,11 @@ public class FitzgeraldKevinSort implements Sorter{
         System.out.println("Sorted array: " + Arrays.toString(arr));
     }
 }
+
+/*
+ * I was honestly surprised that the sorting itself works. It was not, of course, able to connect it to the sorter.java interface, so there were a lot of 
+ * changes I needed to make to make the sorting code actually run. It did save a lot of time to type the code itself, and it showed me that 
+ * ChatGPT is a dangerous tool for people who are trying to learn. The muscle-memory and problem-solving that it would have taken to write the raw
+ * code was skipped in less than ten seconds. As much as I appreciate the time saved, I dont think I'll use ChatGPT for code. Itwas fast, but theres no way
+ * it can do all the work of understanding how all the files work together and correct the code accordingly.
+ */

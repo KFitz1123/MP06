@@ -47,40 +47,39 @@ public class MergeSort implements Sorter {
     if (hi - lo < 2) {
     } //end recursion when each is one term
     else{
-     int mid = (lo + hi) / 2;
+     int mid = lo + (hi - lo) / 2;
      sorthelper(vals, lo, mid,comparator);
      sorthelper(vals, mid, hi, comparator);
      merge(vals, lo, mid, hi, comparator);
     }//if it still needs to recurse
    } // sort
+
+
   static <T> void merge(T[] vals, int lo, int mid, int hi, Comparator<? super T> comparator) {
-    String val;
     int leftIndex = lo, rightIndex = mid;
       T[] leftArray = Arrays.copyOfRange(vals, lo, mid);
       T[] rightArray = Arrays.copyOfRange(vals, mid, hi);
     for (int i = lo; i < hi; i++)
     {
-      val = vals[i].toString();
       if (leftIndex >= mid && rightIndex < hi){
         vals[i] = rightArray[rightIndex - mid];
         rightIndex++;
-      }//if left is done
-        else if (rightIndex < hi){
-          int bool = comparator.compare(leftArray[leftIndex - lo],rightArray[rightIndex - mid]);
-          if(bool == -1){
+        }//if left is done
+      else if (leftIndex < mid && rightIndex >= hi){
           vals[i] = leftArray[leftIndex - lo];
           leftIndex++;
-        }// if right is greater
-         else if(bool == 0){
-              vals[i] = leftArray[leftIndex - lo];
-              leftIndex++;
-        }// if equal
-         else if (bool == 1 ){
+        }//if right is done
+      else if (rightIndex < hi){
+          int bool = comparator.compare(leftArray[leftIndex - lo],rightArray[rightIndex - mid]);
+          if(bool <= 0){
+            vals[i] = leftArray[leftIndex - lo];
+            leftIndex++;
+          } // if right is greater
+          else if (bool > 0 ){
             vals[i] = rightArray[rightIndex - mid];
             rightIndex++;
-        } // if right is greater
+          } // if right is greater
     }// if both have vals and rightindex isnt done
-   val = vals[i].toString();
   }// for
   } // merge
 

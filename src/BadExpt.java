@@ -45,7 +45,7 @@ System.out.print("initial:  {");
 
     MergeSort.sorthelper(initial,0, initial.length, intcomp);
 
-    System.out.print("actual:  {");
+    System.out.print("actual:   {");
     for(int i = 0; i < initial.length - 1; i++){
       System.out.print(initial[i] + ",");
       System.out.flush();
